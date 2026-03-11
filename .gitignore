@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+node_modules/
+dist/
+ReDocs/Data/
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
