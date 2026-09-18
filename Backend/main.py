@@ -9,6 +9,7 @@ import ollama
 import os
 import shutil
 
+
 app = FastAPI()
 
 # CORS - allows React (port 5173) to talk to FastAPI (port 8000)

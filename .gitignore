@@ -5,7 +5,7 @@ __pycache__/
 .env
 node_modules/
 dist/
-ReDocs/Data/
+Backend/Data/
 .DS_Store
 Thumbs.db
 .vscode/
