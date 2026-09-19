@@ -397,7 +397,7 @@ flowchart LR
 
 ---
 
-## 🖼️ Screenshots
+<!-- ## 🖼️ Screenshots
 
 > 📸 *Add screenshots of your application here once available.*
 
@@ -406,7 +406,7 @@ flowchart LR
 ![Chat Interface](./docs/screenshots/chat.png)
 -->
 
----
+--- -->
 
 ## ⚡ Performance
 
