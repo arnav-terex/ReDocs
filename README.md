@@ -1,6 +1,6 @@
 <div align="center">
 
-# 📚 ReDocs - Legal Document Reviewing AI
+# 📚 ReDocs: Legal Document Reviewing AI
 
 ### Turn dense legal paperwork into instant, cited answers.
 
@@ -45,18 +45,18 @@
 
 ## 🔍 Overview
 
-**ReDocs** is an AI-powered legal document reviewing application that lets you upload contracts, agreements, policies, or any legal document and ask natural-language questions about them - getting accurate, context-grounded answers in seconds.
+**ReDocs** is an AI-powered legal document reviewing application that lets you upload contracts, agreements, policies, or any legal document and ask natural-language questions about them, getting accurate, context-grounded answers in seconds.
 
 Legal documents are long, dense, and full of jargon. Manually reviewing them for key clauses, obligations, or risks is slow and error-prone. ReDocs solves this by combining:
 
 - **Docling** to parse documents into clean structured text, then chunk them with `HybridChunker`
-- **ChromaDB** (running embedded - no separate server) with a **BAAI/bge-m3** embedding function for vector storage and similarity search
+- **ChromaDB** (running embedded, no separate server) with a **BAAI/bge-m3** embedding function for vector storage and similarity search
 - **LangChain** (`langchain-ollama`) to orchestrate calls to **DeepSeek-R1:8B**, served locally via Ollama
 - **FastAPI** as the backend serving the RAG pipeline (`main.py`), paired with a **React + Vite** chat UI (`Frontend`)
 
 ### 💡 Why ReDocs Exists
 
-Traditional keyword search fails on legal text because meaning matters more than exact wording. ReDocs uses **Retrieval-Augmented Generation (RAG)** - retrieving the *most relevant* sections of a document before generating an answer - so responses stay accurate, traceable, and grounded in the actual document content instead of hallucinated legal advice.
+Traditional keyword search fails on legal text because meaning matters more than exact wording. ReDocs uses **Retrieval-Augmented Generation (RAG)**: retrieving the *most relevant* sections of a document before generating an answer, so responses stay accurate, traceable, and grounded in the actual document content instead of hallucinated legal advice.
 
 ### 🧑‍⚖️ Real-World Use Cases
 
@@ -72,29 +72,29 @@ Traditional keyword search fails on legal text because meaning matters more than
 
 - ⚡ Faster document comprehension
 - 🎯 Context-grounded, citation-friendly answers
-- 🔒 Runs fully locally - no data leaves your machine (via Ollama)
+- 🔒 Runs fully locally: no data leaves your machine (via Ollama)
 - 🧩 Modular, extensible pipeline
-- 💸 No per-token API costs - local inference
+- 💸 No per-token API costs: local inference
 
 > **Note:** ReDocs is a productivity aid, not a substitute for professional legal advice.
 >
-> **Current scope:** the backend keeps one active document at a time - uploading a new file replaces the previous one in the vector store (the `User01` collection is dropped and recreated on every `/upload`). Multi-document sessions are listed under [Future Improvements](#️-future-improvements).
+> **Current scope:** the backend keeps one active document at a time; uploading a new file replaces the previous one in the vector store (the `User01` collection is dropped and recreated on every `/upload`). Multi-document sessions are listed under [Future Improvements](#️-future-improvements).
 
 ---
 
 ## ✨ Features
 
-- 📤 **Document Upload** - Upload a legal document as a PDF
-- 🔧 **Docling-Powered Conversion** - Converts raw documents into clean, structured text
-- ✂️ **Automatic Chunking** - Docling's `HybridChunker` splits documents into token-aware, merged chunks
-- 🧬 **Embedding Generation** - Chunks are embedded with the `BAAI/bge-m3` sentence-transformer model
-- 🗄️ **ChromaDB Vector Storage** - Embedded, file-backed ChromaDB persists vectors locally (no separate DB server)
-- 🔍 **RAG-Based Retrieval** - Fetches the top-3 most relevant chunks per query
-- 🤖 **AI-Powered Q&A** - Answers questions using DeepSeek-R1:8B (via Ollama + LangChain)
-- 🧠 **Semantic Search** - Understands meaning, not just keywords
-- ⚡ **Fast Responses** - Optimized retrieval + local inference pipeline
-- 🎨 **Clean, Futuristic UI** - `Frontend`, a dark-themed React + Vite interface with an icon rail, session sidebar, and animated waveform loading state
-- 🧱 **Extensible Architecture** - Swap models, vector stores, or parsers easily
+- 📤 **Document Upload**: Upload a legal document as a PDF
+- 🔧 **Docling-Powered Conversion**: Converts raw documents into clean, structured text
+- ✂️ **Automatic Chunking**: Docling's `HybridChunker` splits documents into token-aware, merged chunks
+- 🧬 **Embedding Generation**: Chunks are embedded with the `BAAI/bge-m3` sentence-transformer model
+- 🗄️ **ChromaDB Vector Storage**: Embedded, file-backed ChromaDB persists vectors locally (no separate DB server)
+- 🔍 **RAG-Based Retrieval**: Fetches the top-3 most relevant chunks per query
+- 🤖 **AI-Powered Q&A**: Answers questions using DeepSeek-R1:8B (via Ollama + LangChain)
+- 🧠 **Semantic Search**: Understands meaning, not just keywords
+- ⚡ **Fast Responses**: Optimized retrieval + local inference pipeline
+- 🎨 **Clean, Futuristic UI**: `Frontend`, a dark-themed React + Vite interface with an icon rail, session sidebar, and animated waveform loading state
+- 🧱 **Extensible Architecture**: Swap models, vector stores, or parsers easily
 
 ---
 
@@ -129,7 +129,7 @@ flowchart TD
 ```
 ReDocs/
 │
-├── Frontend/             # Frontend - React + Vite chat UI
+├── Frontend/             # Frontend: React + Vite chat UI
 │   ├── index.html
 │   ├── package.json
 │   ├── package-lock.json
@@ -148,7 +148,7 @@ ReDocs/
 │           └── Composer.jsx   # Text input + send + file-upload button
 │
 ├── sample data/               # Sample legal documents for testing the pipeline
-├── Data/                       # Auto-created at runtime by main.py - stores the
+├── Data/                       # Auto-created at runtime by main.py: stores the
 │                               # uploaded PDF *and* the persistent ChromaDB index
 ├── main.py                     # FastAPI backend entry point (RAG pipeline)
 └── README.md                    # You are here 📍
@@ -156,13 +156,13 @@ ReDocs/
 
 | Folder / File | Purpose |
 |---|---|
-| `Frontend/` | React + Vite frontend - the chat interface used to upload documents and ask questions |
+| `Frontend/` | React + Vite frontend: the chat interface used to upload documents and ask questions |
 | `Frontend/src/App.jsx` | Central state management and all calls to the FastAPI backend (`/upload`, `/ask`) |
 | `Frontend/src/components/` | Individual UI components (sidebar, message bubbles, composer, top bar, icon rail) |
 | `Frontend/src/index.css` | All design tokens, colors, fonts, and spacing (`:root` variables) |
 | `sample data/` | Example legal documents to test uploads and Q&A against |
 | `Data/` | Created automatically the first time you upload a document. Holds the raw uploaded PDF and the on-disk ChromaDB `PersistentClient` store. Safe to delete to reset the app's state. |
-| `main.py` | FastAPI backend - handles document parsing (Docling), chunking, embedding (BAAI/bge-m3), ChromaDB storage, and DeepSeek-R1:8B inference via LangChain + Ollama |
+| `main.py` | FastAPI backend: handles document parsing (Docling), chunking, embedding (BAAI/bge-m3), ChromaDB storage, and DeepSeek-R1:8B inference via LangChain + Ollama |
 
 > ⚠️ **Note:** `main.py` is currently a single-file FastAPI backend rather than split into `routes/` / `controllers/` / `services/`. If you've since modularized it, update this section to match.
 
@@ -182,7 +182,7 @@ Make sure you have the following installed before proceeding:
 | **Ollama** | Runs DeepSeek-R1:8B locally | [ollama.com](https://ollama.com/) |
 | **Git** | Version control | [git-scm.com](https://git-scm.com/) |
 
-> 💡 **ChromaDB isn't a separate service here** - `main.py` uses `chromadb.PersistentClient`, an embedded, file-backed store written to the `Data/` folder. There's nothing to install or run beyond the `chromadb` Python package pulled in by `pip install`.
+> 💡 **ChromaDB isn't a separate service here**: `main.py` uses `chromadb.PersistentClient`, an embedded, file-backed store written to the `Data/` folder. There's nothing to install or run beyond the `chromadb` Python package pulled in by `pip install`.
 
 ---
 
@@ -197,7 +197,7 @@ cd ReDocs
 
 ## 📦 Install Dependencies
 
-ReDocs has two parts - install each separately.
+ReDocs has two parts, install each separately.
 
 **Backend (Python / FastAPI):**
 ```bash
@@ -220,7 +220,7 @@ npm install
 cd ..
 ```
 
-> ⚠️ **Note:** `python-multipart` is required even though it isn't imported directly - FastAPI needs it under the hood to parse the `UploadFile` in `/upload`.
+> ⚠️ **Note:** `python-multipart` is required even though it isn't imported directly; FastAPI needs it under the hood to parse the `UploadFile` in `/upload`.
 
 ---
 
@@ -232,18 +232,18 @@ Run the backend and frontend in **two separate terminals**. Make sure `ollama se
 npm start
 ```
 This single command starts Frontend and Backend both
-Backend runs on `http://localhost:8000` by default (uvicorn's default port - `main.py` doesn't set one explicitly).
+Backend runs on `http://localhost:8000` by default (uvicorn's default port; `main.py` doesn't set one explicitly).
 
-1. The FastAPI backend starts up (ChromaDB connects lazily - its store is created on first upload, not at startup)
+1. The FastAPI backend starts up (ChromaDB connects lazily; its store is created on first upload, not at startup)
 2. It exposes `/upload` and `/ask` endpoints on `http://localhost:8000`
 3. The Vite dev server serves the `Frontend` UI at the printed local URL (typically `http://localhost:5173`)
-4. The frontend calls the backend directly - CORS is enabled in `main.py` for `http://localhost:5173` and `http://localhost:3000` only. If you serve the frontend from a different origin, add it to the `allow_origins` list in `main.py`
+4. The frontend calls the backend directly; CORS is enabled in `main.py` for `http://localhost:5173` and `http://localhost:3000` only. If you serve the frontend from a different origin, add it to the `allow_origins` list in `main.py`
 
 ---
 
 ## 🔐 Configuration
 
-`main.py` currently doesn't read a `.env` file - there are no environment variables to set. The relevant settings are hardcoded directly in the source:
+`main.py` currently doesn't read a `.env` file, so there are no environment variables to set. The relevant settings are hardcoded directly in the source:
 
 | Setting | Where it lives in `main.py` | Value |
 |---|---|---|
@@ -254,9 +254,9 @@ Backend runs on `http://localhost:8000` by default (uvicorn's default port - `ma
 | Chunk size | `HybridChunker(max_tokens=...)` | `400` tokens |
 | Retrieved chunks per query | `collection.query(n_results=...)` | `3` |
 
-To change any of these, edit the values directly in `main.py` for now. If you'd like these pulled out into a `.env` file (using `python-dotenv` or `pydantic-settings`), that's a reasonable addition - see [Future Improvements](#️-future-improvements).
+To change any of these, edit the values directly in `main.py` for now. If you'd like these pulled out into a `.env` file (using `python-dotenv` or `pydantic-settings`), that's a reasonable addition, see [Future Improvements](#️-future-improvements).
 
-If the frontend's `BACKEND_URL` (top of `Frontend/src/App.jsx`) points somewhere other than `http://localhost:8000`, update it there - it's hardcoded on the frontend side too.
+If the frontend's `BACKEND_URL` (top of `Frontend/src/App.jsx`) points somewhere other than `http://localhost:8000`, update it there too; it's hardcoded on the frontend side as well.
 
 ---
 
@@ -292,13 +292,13 @@ You should see `deepseek-r1:8b` listed among your available models.
 
 ## 🧠 About ChromaDB in This Project
 
-Unlike a typical client-server ChromaDB setup, `main.py` uses `chromadb.PersistentClient(path=DB_PATH)` - an **embedded** instance that reads and writes directly to disk. There's no `chroma run` server to start and no Docker container to manage.
+Unlike a typical client-server ChromaDB setup, `main.py` uses `chromadb.PersistentClient(path=DB_PATH)`, an **embedded** instance that reads and writes directly to disk. There's no `chroma run` server to start and no Docker container to manage.
 
 - The store lives at `./Data` (created automatically on first upload)
 - Each upload deletes and recreates a single collection named `User01`, so only one document's worth of chunks exists in the store at a time
 - To fully reset the app's memory, just delete the `Data/` folder
 
-> 💡 If you later move to a multi-document or multi-user setup, switching to a client-server ChromaDB deployment (`chroma run` or the Docker image) would be the natural next step - see [Future Improvements](#️-future-improvements).
+> 💡 If you later move to a multi-document or multi-user setup, switching to a client-server ChromaDB deployment (`chroma run` or the Docker image) would be the natural next step, see [Future Improvements](#️-future-improvements).
 
 ---
 
@@ -318,7 +318,7 @@ Unlike a typical client-server ChromaDB setup, `main.py` uses `chromadb.Persiste
 
 ### `POST /upload`
 
-Uploads and processes a legal document (PDF). Expects a multipart `FormData` request with a `file` field. This **replaces** any previously uploaded document - the vector store holds one document at a time.
+Uploads and processes a legal document (PDF). Expects a multipart `FormData` request with a `file` field. This **replaces** any previously uploaded document; the vector store holds one document at a time.
 
 **Request:**
 ```bash
@@ -351,7 +351,7 @@ curl -X POST http://localhost:8000/ask \
 }
 ```
 
-There is currently no `/health` endpoint in `main.py` - just these two routes.
+There is currently no `/health` endpoint in `main.py`, just these two routes.
 
 ---
 
@@ -368,14 +368,14 @@ flowchart LR
     G --> H[DeepSeek Response]
 ```
 
-1. **Document Upload** - User submits a PDF via the UI or API; it's saved into `Data/`
-2. **Docling Parsing** - Converts the raw document into structured, clean text
-3. **Chunk Creation** - Docling's `HybridChunker` splits text into merged, token-bounded segments (max 400 tokens, using the `all-MiniLM-L6-v2` tokenizer for length counting)
-4. **Embedding Generation** - Each chunk is embedded with the `BAAI/bge-m3` sentence-transformer model
-5. **Store in ChromaDB** - Embeddings and heading metadata are written to the embedded, file-backed `User01` collection (previous collection is dropped first)
-6. **Similarity Search** - The user's question is embedded and matched against the top 3 most similar chunks
-7. **Prompt Construction** - Retrieved chunks are joined into a context block and wrapped in a prompt via LangChain's `HumanMessage`
-8. **DeepSeek Response** - `ChatOllama` sends the prompt to DeepSeek-R1:8B (temperature `0.3`) and returns the generated answer
+1. **Document Upload**: User submits a PDF via the UI or API; it's saved into `Data/`
+2. **Docling Parsing**: Converts the raw document into structured, clean text
+3. **Chunk Creation**: Docling's `HybridChunker` splits text into merged, token-bounded segments (max 400 tokens, using the `all-MiniLM-L6-v2` tokenizer for length counting)
+4. **Embedding Generation**: Each chunk is embedded with the `BAAI/bge-m3` sentence-transformer model
+5. **Store in ChromaDB**: Embeddings and heading metadata are written to the embedded, file-backed `User01` collection (previous collection is dropped first)
+6. **Similarity Search**: The user's question is embedded and matched against the top 3 most similar chunks
+7. **Prompt Construction**: Retrieved chunks are joined into a context block and wrapped in a prompt via LangChain's `HumanMessage`
+8. **DeepSeek Response**: `ChatOllama` sends the prompt to DeepSeek-R1:8B (temperature `0.3`) and returns the generated answer
 
 ---
 
@@ -413,7 +413,7 @@ flowchart LR
 - 🚀 **Fast retrieval** via an embedded ChromaDB store (no network hop to a separate DB server)
 - 🧬 **Efficient embeddings** via the lightweight `BAAI/bge-m3` sentence-transformer model
 - 🔍 **Semantic search** that understands intent, not just keywords
-- 🖥️ **Local inference** - DeepSeek-R1:8B runs entirely through Ollama, with `keep_alive=0` unloading it from RAM/VRAM right after each answer
+- 🖥️ **Local inference**: DeepSeek-R1:8B runs entirely through Ollama, with `keep_alive=0` unloading it from RAM/VRAM right after each answer
 
 ---
 
@@ -456,7 +456,7 @@ Contributions are welcome! To contribute:
 
 <!-- ## 📄 License
 
-This project is licensed under the **MIT License** - see the [LICENSE](./LICENSE) file for details.
+
 
 ---
 
@@ -472,14 +472,14 @@ This project is licensed under the **MIT License** - see the [LICENSE](./LICENSE
 
 ## 🙏 Acknowledgements
 
-- [Docling](https://github.com/DS4SD/docling) - Document conversion & chunking
-- [ChromaDB](https://www.trychroma.com/) - Embedded vector database
-- [LangChain](https://www.langchain.com/) - LLM orchestration (`langchain-ollama`)
-- [sentence-transformers](https://www.sbert.net/) - Embedding model runtime
-- [Ollama](https://ollama.com/) - Local LLM serving
-- [DeepSeek](https://www.deepseek.com/) - DeepSeek-R1 model
-- [FastAPI](https://fastapi.tiangolo.com/) - Backend framework
-- [React](https://react.dev/) + [Vite](https://vitejs.dev/) - Frontend
+- [Docling](https://github.com/DS4SD/docling): Document conversion & chunking
+- [ChromaDB](https://www.trychroma.com/): Embedded vector database
+- [LangChain](https://www.langchain.com/): LLM orchestration (`langchain-ollama`)
+- [sentence-transformers](https://www.sbert.net/): Embedding model runtime
+- [Ollama](https://ollama.com/): Local LLM serving
+- [DeepSeek](https://www.deepseek.com/): DeepSeek-R1 model
+- [FastAPI](https://fastapi.tiangolo.com/): Backend framework
+- [React](https://react.dev/) + [Vite](https://vitejs.dev/): Frontend
 
 ---
 
