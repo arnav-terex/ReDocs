@@ -104,13 +104,13 @@ ReDocs follows a clean, linear RAG pipeline from upload to answer:
 
 ```mermaid
 flowchart TD
-    A[📤 User Upload] --> B[🔧 Docling]
-    B --> C[✂️ Chunking]
-    C --> D[🧬 Embeddings]
-    D --> E[🗄️ ChromaDB]
-    E --> F[🔎 Relevant Context Retrieval]
-    F --> G[🤖 DeepSeek-R1:8B]
-    G --> H[✅ Final Answer]
+    A(📤 User Upload) --> B(🔧 Docling)
+    B --> C(✂️ Chunking)
+    C --> D(🧬 Embeddings)
+    D --> E(🗄️ ChromaDB)
+    E --> F(🔎 Relevant Context Retrieval)
+    F --> G(🤖 DeepSeek-R1:8B)
+    G --> H(✅ Final Answer)
 
     style A fill:#4F8EF7,color:#fff
     style B fill:#7B5CFA,color:#fff
